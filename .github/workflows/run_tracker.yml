@@ -2,7 +2,7 @@ name: Tracker服务器合并  # 工作流名称
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # 每天 UTC 时间 0:00（对应北京时间 8:00）自动触发
+    - cron: '45 23 * * *'  # 调整为 UTC 时间 23:45（对应北京时间 7:45），提前 15 分钟触发
   workflow_dispatch:  # 手动触发工作流
 
 env:
@@ -24,7 +24,6 @@ jobs:
       run: |
         sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime  # 设置本地时间文件
         echo "Asia/Shanghai" | sudo tee /etc/timezone  # 配置时区
-        date  # 打印当前时间，确认时区是否正确
 
     # 第三步：设置 Python 环境
     - name: Set up Python
