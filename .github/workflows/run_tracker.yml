@@ -34,10 +34,12 @@ jobs:
       # 直接推送 all.txt 文件到仓库
       - name: Commit and push all.txt
         run: |
+          # 获取当前北京时间
+          current_time=$(TZ="Asia/Shanghai" date "+%Y-%m-%d %H:%M:%S")
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add all.txt
-          git commit -m "Update all.txt" || echo "No changes to commit"
+          git commit -m "Update all.txt at ${current_time}" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
