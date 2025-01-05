@@ -17,7 +17,7 @@ urls = [
 output_file = "all.txt"  # Example file name
 
 # 打开输出文件并以追加模式写入内容
-with open(output_file, 'a', encoding='utf-8') as file:
+with open(output_file, 'w', encoding='utf-8') as file:
     for url in urls:
         try:
             response = requests.get(url, timeout=10)  # 增加超时时间避免长时间卡住
