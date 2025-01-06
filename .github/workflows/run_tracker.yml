@@ -3,7 +3,7 @@ name: Run Tracker and Push Results
 on:
   schedule:
     # 每天北京时间 8 点运行，注意 GitHub Actions 使用的是 UTC 时间
-    - cron: '0 0 * * *'  # UTC 0 时，即北京时间 8 点
+    - cron: '55 23 * * *'  # UTC 0 时，即北京时间 8 点
   workflow_dispatch:  # 允许手动触发工作流
 
 jobs:
